@@ -40,13 +40,16 @@ Example:
         .navbar ul.navbar-nav > li                                          { float: left; }
         .navbar ul.navbar-nav > li > a                                      { display: block; padding: 16px 20px 15px; color: #fff; font-size: 12px; text-decoration: none; font-family: "Open Sans"; transition: all 0.1s ease-in-out 0s; }
         .navbar ul.navbar-nav > li > a:hover,
-        .navbar ul.navbar-nav > li > a.active                               { background-color: #545454; color: #fff; }
+        .navbar ul.navbar-nav > li > a:active                               { background-color: #545454; color: #adadad; }
         .navbar.gob-mx-navbar ul.navbar-nav,
         .navbar.gob-mx-navbar ul.navbar-nav > li                            { height: 50px; }
         .navbar.gob-mx-navbar ul.navbar-nav > li > a                        { font-size: 16px; font-weight: 300; }
         .navbar.gob-mx-navbar ul.navbar-nav > li > a.datos-item             { color: #FFF;}
         .navbar.gob-mx-navbar ul.navbar-nav > li > a:hover,
         .navbar.gob-mx-navbar ul.navbar-nav > li > a.active                 { background-color: #000; color: #fff; }
+		.item-selected,
+        .navbar ul.navbar-nav > li > a:hover,
+        .navbar ul.navbar-nav > li > a:active  { background-color: #393c3e ; color: #FFF; }
         .navbar.gob-mx-navbar ul.navbar-nav > li.datos-item > a            { background-color: #000;  }
         .navbar.gob-mx-navbar ul.navbar-nav > li > a > img                  { width: 20px; }
         @media (max-width: 991px)                                           { .navbar-collapse { display: none; } }
@@ -73,23 +76,24 @@ Example:
                         <li class="item-github"><a href="//github.com/mxabierto" target="_blank">Github</a></li>
                     </ul>
                     <ul class="nav navbar-nav">
-                        <li>
+                     	<li id = 'busca'>
                             <a aria-label="Ir al catalogo de datos" title="Ir al catalogo de datos" href="http://datos.gob.mx/busca">Datos</a>
                         </li>
+
                         <li>
-                            <a aria-label="Conoce el impacto de los datos" title="Conoce el impacto de los datos" href="//datos.gob.mx/blog">Blog</a>
+                            <a id = 'blog' aria-label="Conoce el impacto de los datos" title="Conoce el impacto de los datos" href="//datos.gob.mx/blog" >Blog</a>
                         </li>
                         <li>
-                            <a aria-label="Conoce las herramientas con datos" title="Conoce las herramientas con datos" href="//datos.gob.mx/herramientas">Herramientas</a>
+                            <a  id = 'herramientas' aria-label="Conoce las herramientas con datos" title="Conoce las herramientas con datos" href="//datos.gob.mx/herramientas">Herramientas</a>
                         </li>
                         <li>
-                            <a aria-label="Conoce los Datos Abiertos más buscados" title="Conoce los Datos Abiertos más buscados" href="//datos.gob.mx/visualizacion">Visualización</a>
+                            <a id = 'visualizacion' aria-label="Conoce los Datos Abiertos más buscados" title="Conoce los Datos Abiertos más buscados" href="//datos.gob.mx/visualizacion">Visualización</a>
                         </li>
                         <li>
-                            <a aria-label="Conoce la sección dedicada a los desarrolladores de todo tipo" title="Conoce la sección dedicada a los desarrolladores" href="//datos.gob.mx/desarrolladores">Desarrolladores</a>
+                            <a id = 'desarrolladores' aria-label="Conoce la sección dedicada a los desarrolladores de todo tipo" title="Conoce la sección dedicada a los desarrolladores" href="//datos.gob.mx/desarrolladores">Desarrolladores</a>
                         </li>
                         <li>
-                            <a aria-label="Conoce más sobre este sitio" title="Conoce más sobre este sitio" href="//datos.gob.mx/acerca">Acerca</a>
+                            <a id = 'acerca' aria-label="Conoce más sobre este sitio" title="Conoce más sobre este sitio"  href="//datos.gob.mx/acerca">Acerca</a>
                         </li>
                     </ul>
                 </div>
@@ -159,4 +163,31 @@ Example:
             });
         }
     })
+    
+    //color active de natvar 
+    $(document).ready(function() {
+		var url = window.location.pathname;
+        
+        if (url ==="/busca"){
+           $('#busca').css('color', '#fff');
+           $('#busca').css('background-color', '#545454');
+        }else if (url  ==="/blog"){
+           $('#blog').css('color', '#fff');
+           $('#blog').css('background-color', '#545454');
+        }else  if (url  ==="/herramientas"){
+           $('#herramientas').css('color', '#fff');
+           $('#herramientas').css('background-color', '#545454');
+        }else if (url === "/acerca"){
+           $('#acerca').css('color', '#fff');
+           $('#acerca').css('background-color', '#545454');
+        }
+        else if (url === "/visualizacion"){ 
+           $('#visualizacion').css('color', '#fff');
+           $('#visualizacion').css('background-color', '#545454');
+        }else if (url === "/desarrolladores"){ 
+            $('#desarrolladores').css('color', '#fff');
+            $('#desarrolladores').css('background-color', '#545454');
+        }
+     });
+
 </script>
