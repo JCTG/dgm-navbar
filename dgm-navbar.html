@@ -38,9 +38,9 @@ Example:
         .navbar ul.navbar-nav.social-navigation .item-github a              { background-position: 50% -54px; }
         .navbar ul.navbar-nav                                               { margin: 0; padding: 0; list-style: none; float: right; }
         .navbar ul.navbar-nav > li                                          { float: left; }
-        .navbar ul.navbar-nav > li > a                                      { display: block; padding: 16px 20px 15px; color: #fff; font-size: 12px; text-decoration: none; font-family: "Open Sans"; transition: all 0.1s ease-in-out 0s; }
-        .navbar ul.navbar-nav > li > a:hover,
-        .navbar ul.navbar-nav > li > a.active                               { background-color: #545454; color: #adadad; }
+        .navbar ul.navbar-nav > li > a                                      { display: block; padding: 16px 20px 15px; color: #fff; font-size: 12px; font-weight:bold; text-decoration: none; font-family: "Open Sans"; transition: all 0.1s ease-in-out 0s; }
+        .navbar ul.navbar-nav > li > a:hover							    { background-color: #545454; color: #fff; }
+        .navbar ul.navbar-nav > li > a:active                               { background-color: #545454; color: #fff; }
         .navbar.gob-mx-navbar ul.navbar-nav,
         .navbar.gob-mx-navbar ul.navbar-nav > li                            { height: 50px; }
         .navbar.gob-mx-navbar ul.navbar-nav > li > a                        { font-size: 16px; font-weight: 300; }
@@ -74,22 +74,19 @@ Example:
                     </ul>
                     <ul class="nav navbar-nav">
                         <li>
-                            <a aria-label="Ir al catalogo de datos" title="Ir al catalogo de datos" href="http://datos.gob.mx/busca">Datos</a>
+                            <a id = 'busca' aria-label="Ir al catalogo de datos" title="Ir al catalogo de datos" href="http://localhost:8080/busca">Datos</a>
                         </li>
                         <li>
-                            <a aria-label="Conoce el impacto de los datos" title="Conoce el impacto de los datos" href="//datos.gob.mx/blog">Blog</a>
+                            <a id = 'blog' aria-label="Conoce el impacto de los datos" title="Conoce el impacto de los datos" href="http://localhost:8080/blog">Blog</a>
                         </li>
                         <li>
-                            <a aria-label="Conoce las herramientas con datos" title="Conoce las herramientas con datos" href="//datos.gob.mx/herramientas">Herramientas</a>
+                            <a id = 'visualizacion' aria-label="Conoce los Datos Abiertos más buscados" target="_self" title="Conoce los Datos Abiertos más buscados" href="http://localhost:8080/visualizacion">Visualización</a>
                         </li>
                         <li>
-                            <a aria-label="Conoce los Datos Abiertos más buscados" title="Conoce los Datos Abiertos más buscados" href="//datos.gob.mx/visualizacion">Visualización</a>
+                            <a id = 'herramientas' aria-label="Conoce las herramientas con datos" title="Conoce las herramientas con datos" href="//localhost:8080/herramientas">Herramientas</a>
                         </li>
                         <li>
-                            <a aria-label="Conoce la sección dedicada a los desarrolladores de todo tipo" title="Conoce la sección dedicada a los desarrolladores" href="//datos.gob.mx/desarrolladores">Desarrolladores</a>
-                        </li>
-                        <li>
-                            <a aria-label="Conoce más sobre este sitio" title="Conoce más sobre este sitio" href="//datos.gob.mx/acerca">Acerca</a>
+                            <a id = 'acerca' aria-label="Conoce más sobre este sitio" title="Conoce más sobre este sitio" href="//localhost:8080/acerca">Acerca</a>
                         </li>
                     </ul>
                 </div>
@@ -126,7 +123,7 @@ Example:
         </nav>
     </template>
 </dom-module>
-<script>
+<script type="text/javascript">
     Polymer({
         is          : 'dgm-navbar',
         attached    : function() {},
@@ -159,4 +156,30 @@ Example:
             });
         }
     })
+
+//Estilos  de natvar 
+function opt_natvar(){
+  var url = window.location.pathname;
+  if (url ==="/busca"){
+
+      $('#busca').css('color', '#fff');
+      $('#busca').css('background-color', '#393C3E');
+       
+    }else if (url  ==="/blog"){
+       $('#blog').css('color', '#fff');
+       $('#blog').css('background-color', '#393C3E');
+    }else  if (url  ==="/herramientas"){
+       $('#herramientas').css('color', '#fff');
+       $('#herramientas').css('background-color', '#393C3E');
+    }else if (url === "/acerca"){
+       $('#acerca').css('color', '#fff');
+       $('#acerca').css('background-color', '#393C3E');
+    }
+    else if (url === "/visualizacion"){ 
+       $('#visualizacion').css('color', '#fff');
+       $('#visualizacion').css('background-color', '#393C3E');
+    }
+}
+setTimeout(opt_natvar, 100);
+     
 </script>
